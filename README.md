@@ -146,7 +146,7 @@ System.out.println("분발하세요!");// 시도횟수가 10번
 ![image](https://github.com/JJUN1204/BaseBall_number_game/assets/108847513/0464481c-c0ce-48a5-b6e1-7c9633de2cd7)   
 ****
 **만약 시도횟수가 11번을 넘을시에도 게임은 종료됩니다.**
-![image](https://github.com/JJUN1204/BaseBall_number_game/assets/108847513/39271740-611b-4e86-919a-b2ca1693a998)
+![image](https://github.com/JJUN1204/BaseBall_number_game/assets/108847513/39271740-611b-4e86-919a-b2ca1693a998)   
 ****
 ## [generateRandomNumber 함수를 사용한 또 다른 방식의 코드]
 ```java
