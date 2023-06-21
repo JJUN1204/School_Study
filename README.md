@@ -137,7 +137,7 @@ System.out.println("분발하세요!");// 시도횟수가 10번
 
 **게임을 실행하면 컴퓨터는 3개의 난수를 발생하였고 사용자에게 3개의 수를 물어봅니다**   
 **아래의 이미지와 같이 숫자의 위치는 다르지만 값이 같을경우에는 ball이 추가됩니다.**   
-![image](https://github.com/JJUN1204/BaseBall_number_game/assets/108847513/89d05a18-b7cc-4de4-a850-206793f38e5b)
+![image](https://github.com/JJUN1204/BaseBall_number_game/assets/108847513/89d05a18-b7cc-4de4-a850-206793f38e5b)   
 ****
 **이번에는 숫자와 위치가 모두 동일하여 strike의 값이 1이 증가했습니다.**   
 ![image](https://github.com/JJUN1204/BaseBall_number_game/assets/108847513/636f6ca6-4d76-4444-93c8-4bb8dff60f4c)   
