@@ -55,6 +55,7 @@ System.out.println("숫자 야구 게임");
 
 count= 0;
 ```
+**-인수기 있는 랜덤 메소드를 생성**   
 **-메소드에 사용되는 다양한 변수 선언**
 ****
 ```java
@@ -127,3 +128,123 @@ System.out.println("분발하세요!");// 시도횟수가 10번
   -9회 이하 시도 : 보통이에요   
   -10회이상 : 분발하세요**   
 ****
+## 플레이 화면
+**-예외적 상황 2인방**   
+![image](https://github.com/JJUN1204/BaseBall_number_game/assets/108847513/5b46687d-ef77-4bdc-abf3-d7e7dde1b852)   
+![image](https://github.com/JJUN1204/BaseBall_number_game/assets/108847513/4dfd820f-fba6-4dbf-9813-5775246c6194)   
+****
+
+
+**게임을 실행하면 컴퓨터는 3개의 난수를 발생하였고 사용자에게 3개의 수를 물어봅니다**   
+**아래의 이미지와 같이 숫자의 위치는 다르지만 값이 같을경우에는 ball이 추가됩니다.**   
+![image](https://github.com/JJUN1204/BaseBall_number_game/assets/108847513/89d05a18-b7cc-4de4-a850-206793f38e5b)
+****
+**이번에는 숫자와 위치가 모두 동일하여 strike의 값이 1이 증가했습니다.**   
+![image](https://github.com/JJUN1204/BaseBall_number_game/assets/108847513/636f6ca6-4d76-4444-93c8-4bb8dff60f4c)   
+****
+**모든 숫자를 맞추어 3strike가 되어 잘했다는 문구와 함께 게임이 종료됩니다.**   
+![image](https://github.com/JJUN1204/BaseBall_number_game/assets/108847513/0464481c-c0ce-48a5-b6e1-7c9633de2cd7)   
+****
+**만약 시도횟수가 11번을 넘을시에도 게임은 종료됩니다.**
+![image](https://github.com/JJUN1204/BaseBall_number_game/assets/108847513/39271740-611b-4e86-919a-b2ca1693a998)
+****
+## [generateRandomNumber 함수를 사용한 또 다른 방식의 코드]
+```java
+import java.util.*;
+
+public class 숫자야구게임 {
+    public static void main(String[] args) {
+        // 컴퓨터가 생성한 임의의 3자리 숫자
+        int[] comNum = generateRandomNumber();
+
+        System.out.println("숫자 야구 게임을 시작합니다!");
+
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.print("숫자를 입력하세요 (세 자리 수): ");
+            String input = scanner.nextLine();
+
+            // 사용자가 입력한 숫자를 정수 배열로 변환
+            int[] userNum = ChangeNumArray(input);
+
+            // 입력한 숫자와 컴퓨터의 숫자 비교
+            int strikes = countStrikes(comNum, userNum);
+            int balls = countBalls(comNum, userNum);
+
+            System.out.println("결과: " + strikes + " 스트라이크, " + balls + " 볼");
+
+            // 정답을 맞춘 경우 게임 종료
+            if (strikes == 3) {
+                System.out.println("축하합니다! 정답을 맞추셨습니다.");
+                break;
+            }
+        }
+
+        scanner.close();
+    }
+
+    // 임의의 3자리 숫자 생성
+    private static int[] generateRandomNumber() {
+        List<Integer> digits = new ArrayList<>();
+        for (int i = 1; i <= 9; i++) {
+            digits.add(i);
+        }
+        Collections.shuffle(digits); //셔플을 하여 리스트를 섞어줌
+
+        int[] number = new int[3];
+        for (int i = 0; i < 3; i++) {
+            number[i] = digits.get(i);
+        }
+
+        return number;
+    }
+
+    // 사용자가 입력한 숫자를 정수 배열로 변환
+    private static int[] ChangeNumArray(String input) {
+        int[] number = new int[3];
+        for (int i = 0; i < 3; i++) {
+            number[i] = Character.getNumericValue(input.charAt(i));
+        }
+        return number;
+    }
+
+    // 스트라이크 개수 계산
+    private static int countStrikes(int[] comNum, int[] userNum) {
+        int strikes = 0;
+        for (int i = 0; i < 3; i++) {
+            if (comNum[i] == userNum[i]) {
+                strikes++;
+            }
+        }
+        return strikes;
+    }
+
+    // 볼 개수 계산
+    private static int countBalls(int[] comNum, int[] userNum) {
+        int balls = 0;
+        for (int i = 0; i < 3; i++) {
+            if (comNum[i] != userNum[i] && contains(comNum, userNum[i])) {
+                balls++;
+            }
+        }
+        return balls;
+    }
+
+    // 배열에 특정 값이 포함되어 있는지 확인
+    private static boolean contains(int[] array, int value) {
+        for (int element : array) {
+            if (element == value) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+```
+**-이 코드는 generateRandomNumber 함수를 사용하여 컴퓨터가 임의로 3자리 숫자를 생성합니다.   
+-사용자는 Scanner를 통해 입력한 숫자로 게임에 참여할 수 있습니다.   
+-countStrikes 함수는 스트라이크 개수를 계산하고, countBalls 함수는 볼 개수를 계산합니다.      
+-이를 위해 contains 함수를 사용하여 배열 내에 특정 값이 포함되어 있는지 확인합니다.   
+-게임은 사용자가 3개의 스트라이크를 얻을 때까지 계속됩니다. 정답을 맞추면 게임이 종료됩니다.**
+   
+
