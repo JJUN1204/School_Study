@@ -1,23 +1,14 @@
-#### [움직이는 강아지 분양 동적사이트 만들기]
-![image](https://github.com/JJUN1204/Web/assets/108847513/b8355fef-31a6-4adb-896c-3adc083c770a)
-js를 사용해서 움직이는 사이트를 만듬   
-### [로그인 화면]
-![image](https://github.com/JJUN1204/Web/assets/108847513/af29fe0c-3159-443b-9ebd-a292d637a171)
-### [회원가입 화면]
+## [움직이는 강아지 분양 동적사이트 만들기]
+![녹화_2023_07_12_10_53_58_271](https://github.com/JJUN1204/Petshop_web/assets/108847513/672f52d7-2adf-43c0-8a76-02ef5c0a2e41)
+****
+## [로그인 화면]
+![image](https://github.com/JJUN1204/Petshop_web/assets/108847513/d6a8a94e-bfdb-4918-a5a8-11be73003105)
+****
+## [회원가입 화면]
 ![image](https://github.com/JJUN1204/Web/assets/108847513/4366ac56-318f-40a4-baa7-08e3606db9c3)
-### [Main HTML 코드]
+****
+### [MENU바 요소들]
 ```HTML
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="css/style.css" type="text/css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" defer = "defer"></script>
-<script src="js/script.js" defer="defer"></script>
-</head>
-
-<body>
-<div id='page'>
 <header>
 <div id='logo'>
 	<img src="imgs/pet.png" alt="style size" style="width:320px; height:100px">
@@ -61,7 +52,34 @@ js를 사용해서 움직이는 사이트를 만듬
 	</ul>
 	</div>
 	</header>
-<div class='clear'></div> <!-- float 속성 해제 -->
+</div> <!-- 아이디 page의 끝 -->
+</body>
+</html>
+```
+****
+### [MENU 자바스크립트 코드-1]
+```js
+$(".main-menu > li").mouseover(function(){ //마우스를 올렸을때 반응함
+           $(this).children(".sub").stop().slideDown();
+//    $(".sub").stop().slideDown();
+});
+
+```
+**위 코드는 메뉴바의 요소들 위에 마우스를 올릴 시에는 슬라이드가 내려오는 애니메이션 효과가 나타납니다.**   
+**.stop() : 현재 동작하고 있는 애니메이션은 즉시 동작을 중단시킨는 역할을 한다.**
+### [MENU 자바스크립트 코드-2]
+```js
+$(".main-menu > li").mouseover(function(){ //마우스를 올렸을때 반응함
+           $(this).children(".sub").stop().slideDown();
+//    $(".sub").stop().slideUp();
+});
+
+```
+**위 코드는 메뉴바의 요소들 위에 마우스를 때었을 시에는 슬라이드가 올라가는 애니메이션 효과가 나타납니다.**   
+**.stop() : 현재 동작하고 있는 애니메이션은 즉시 동작을 중단시킨는 역할을 한다.**
+****
+### [메인 배너 이미지html 코드]
+```html
 <section>
 		<div class='imgs'>
 			<img src='imgs/dog1.jpg'>
@@ -73,226 +91,9 @@ js를 사용해서 움직이는 사이트를 만듬
 			</div>
 		</div>
 </section>
-
-<div class='clear'></div> <!-- float 속성 해제 -->
-
-<div class="notice">
-	<h2>강아지분양현황</h2>
-	<table class="table">
-		<tr>
-			<th>내용</th>
-			<th>날짜</th>
-		</tr>
-		
-		<tr>
-			<td><a href="#">골든리트리버 남아(1세)</a></td>
-			<td>2022-06-01</td>
-		</tr>
-		
-		<tr>
-			<td><a href="#">포메라니안 중성화O(3세)</a></td>
-			<td>2022-05-01</td>
-		</tr>
-		
-		<tr>
-			<td><a href="#">웰시코기 3개월 여아</a></td>
-			<td>2022-10-01</td>
-		</tr>
-		
-		<tr>
-			<td><a href="#">도베르만핀셔 남아(1세)</a></td>
-			<td>2022-11-01</td>
-		</tr>
-		
-		<tr>
-			<td><a href="#">급(공지사항)</a></td>
-			<td>2022-12-01</td>
-		</tr>
-	</table>
-</div>
-
-<div class='clear'></div> <!-- float 속성 해제 -->
-	<footer>
-	<div id='address' align="center">
-		<img src='imgs/address.png'>
-	</div>
-	<div class = "clock">
-		<div class = "today" id = "today"></div>
-		<div class = "time" id = "time"></div>
-	
-	</div>
-
-<script src = "./clock.js"></script>
-	</footer>
-</div> <!-- 아이디 page의 끝 -->
-
-</body>
-</html>
 ```
-
-### [CSS 코드]
-```CSS
-@charset "UTF-8";
-*{
-	padding:0;
-	margin:0;
-}
-
-li{
-	list-style: none;
-}
-
-.clear{
-	clear: both;
-}
-
-a{
-	color:inherit;
-	text-decoration: none;
-}
-
-#page{
-	width:955px;
-	margin: 0 auto;
-}
-header{
-	width:995px;
-	height: 120px;
-	margin-top: 10p;
-	border: solid 1px pink;
-}
-
-#logo{
-	float:left;
-	margin-top: 20px;	
-}
-
-#top{
-	float: right;
-	margin: 20px 20px 0 0;
-}
-
-.main-menu{
-	width:600px;
-	height: 40px;
-	margin-top: 10px;
-	background-color: #F499C2;
-	line-height: 40px;
-	color: white;
-}
-
-.main-menu li{ /* 학교소개, 학교생활, members */
-	float: left;
-	width: 150px;
-	text-align: center;
-}
-
-.main-menu li:hover{
-	color: white;
-	background-color: maroon;
-}
-
-.sub{
-	position: absolute;
-	width: 150px;
-	background-color: #aabbdd;
-	display: none;
-	z-index: 1;
-}
-
-.sub li:hover{
-	background-color: #ddbbaa;
-}
-
-section{
-	width: 995px;
-	height: 240px;
-	float: left;
-	margin-top: 10px;
-	align-content: center;
-}
-
-.imgs{
-	width: 995px;
-	height: 220px;
-	position: absolute;
-	overflow: hidden;
-}
-
-.imgs>img{
-	position: absolute;
-	transition: all 2s;
-}
-
-.welcome{
-	position: relative;
-	text-align: center;
-	margin: -35px 0 0 -350px !important;
-	width: 750px;
-	height: 50px;
-	line-height: 50px;
-	background-color: yellow;
-	border-radius: 30px;
-	left: 50%;
-	top: 50%;
-}
-
-span{
-	color:white ;
-}
-
-.notice{
-	width: 995px;
-	margin-top: 10px;
-	float: left;
-}
-
-h2{
-	text-align: center;
-}
-
-.table{
-	width: 995px;
-	border-collapse: collapse;
-	font-size: 1rem;
-	color: #888;
-}
-
-.table tr>th{
-	padding: 5px;
-}
-
-.table tr>td{
-	padding: 5px;
-	text-align: center;
-}
-
-.table tr:nth-child(2n){
-	background-color: #cccccc;
-}
-
-footer{
-	width: 995px;
-	height: 130;
-	border-top: solid 1px #cccccc;
-	margin-top: 20px;
-}
-
-#address{
-	margin: 30px 0 0 50px;
-}
-```
-### [LOGIN.js 풀코드]
+#### [이미지를 통한 애니메이션 js코드]
 ```js
-$(".main-menu > li").mouseover(function(){ //마우스를 올렸을때 반응함
-           $(this).children(".sub").stop().slideDown();
-//    $(".sub").stop().slideDown();
-});
-$(".main-menu > li").mouseleave(function(){ //마우스를 지정 범위에서 떼었을때의 반응
-            $(this).children(".sub").stop().slideUp();
-//    $(".sub").stop().slideUp();
-});
-
 start();
 var imgs=5;
 var now =0;
@@ -307,120 +108,13 @@ function slide(){ //반응형 이미지의 이동
     $(".imgs>img").eq(now-1).css({"margin-left":"-2000px"});
     $(".imgs>img").eq(now).css({"margin-left":"0px"});
 }
-
-function winOpen1(){ //로그인
- var win1 = window.open('login.html','child1','toolbar = no, location= no , status = no, menubar = no, resizable = no , scrollbars = no, width = 700, height = 700')
-}
-function winOpen2(){ //회원가입
- var win2 = window.open('join.html','child2','toolbar = no, location= no , status = no, menubar = no, resizable = no , scrollbars = no, width = 1850, height = 1700')
-}
 ```
-### [Login HTML 풀코드]
-```
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>로그인페이지</title>
-</head>
-<body>
-<form>
-		<p> ID : <input type="text" name="username"></p>
-		<p> Password : <input type="password" name="password"> </p>
-		<p> <input type="submit" value="확인"> &nbsp; <input type='reset' value="취소"> </p>
-	</form>
-</body>
-</html>
-```
-### [Join HTML 코드]
-```
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<style>
-	body{
-		font-size : 14px;
-		font-family : 돋움;
-	}
-	table {
-		width : 800px;
-		margin : 0 auto;
-	}
-	table, tr,th,td{
-		border : 1px solid #333;
-		border-spacing : 0;
-	}
-	strong{color : red;}
-	caption{
-		text-align: right;
-	}
-	th, td{
-		padding : 10px 15px;
-	}
-	span{color : red;}
-	th{text-align : right;}
-	#btn{float : right;}
-</style>
-</head>
-<body>
-<form action="">
-<table>
-<caption>(*)표시는<strong>필수입력</strong> 사항입니다.</caption>
-<tr>
-	<th><span>*</span>회원유형</th>
-	<td>학생</td>
-</tr>
-
-<tr>
-	<th><span>*</span>이름(실명)</th>
-	<td>홍길동</td>
-</tr>
-
-<tr>
-	<th><span>*</span>아이디</th>
-	<td><p><input type = "text" size = "20" maxlength = "15"></p>
-		<p>6~15자의 영문소문자, 숫자만 가능합니다.</p>
-	</td>
-</tr>
-
-<tr>
-	<th><span>*</span>비밀번호</th>
-	<td><p><input type = "password" size = "20"></p>
-		<p>비밀번호는 <strong>영대문자, 영소문자, 숫자, 특수문자의 조합</strong>으로 이루어져야합니다.<
-			- 조합이 2종류 이상인 경우 10자리 이상,<br>
-			- 조합이 3종류 이상인 경우 8자리 이상 가능합니다.,
-		</p>
-	</td>
-</tr>
-
-
-
-<tr>
-	<th><span>*</span>비밀번호 확인</th>
-	<td><p><input type = "password" size = "20"></p></td>
-</tr>
-<tr>
-	<td colspan = "2"><p>학교 홈페이지에 가입하시겠습니다?<span id = "btn"><input type = "submit" value = "확인">
-	&nbsp;<input type = "reset" value = "취소">
-	</span></p></td>
-</tr>
-
-</table>
-</form>
-</body>
-</html>
-```
+**해당코드는 eq()를 통해 현재 인덱스 번호(now)를 불러와 이미지를 교체해주고**   
+**css를 실시간적으로 변화시켜 애니메이션 효과를 주었다.**
+****
 ### [clock.js 코드]
 ```js
-
-
-
 //시간 불러오기
-const todayDiv = document.getElementById("today")
-const timeDiv = document.getElementById("time")
-
 function getTime(){
     let now = new Date();
     timeDiv.textContent = now;
@@ -440,6 +134,26 @@ function getTime(){
     todayDiv.textContent = `${year}년 ${month}월 ${date}일`
     timeDiv.textContent = `${hour}시 ${min}분 ${second}초`
 }
-
-setInterval(getTime, 1000)
 ```
+**위의 코드는 현재 시간을 불러와 TEXT 형태로 변환하여 출력한다.**
+****
+### [로그인,회원가입]
+```html
+<li><a href="#">계정 생성</a>
+		<ul class="sub">
+		<li onclick="winOpen1()"><a href="#">로그인</a></li>
+		<li onclick="winOpen2()"><a href="#">회원가입 클릭</a></li>
+			</ul>
+		</li>
+	</ul>
+```
+```js
+function winOpen1(){ //로그인
+ var win1 = window.open('login.html','child1','toolbar = no, location= no , status = no, menubar = no, resizable = no , scrollbars = no, width = 700, height = 700')
+}
+function winOpen2(){ //회원가입
+ var win2 = window.open('join.html','child2','toolbar = no, location= no , status = no, menubar = no, resizable = no , scrollbars = no, width = 1850, height = 1700')
+}
+```
+**-위 코드는 winOpen()함수를 만들어 로그인바 또는 회원가입바를 눌렀을때 해당 페이지로 이동을 시켜준다.**   
+**-window.open ()는 웹브라우저에서 새창(팝업창)을 열기 위해서 가장 간단히 사용할 수 있는 방법이 바로 자바스크립트 window 객체의 open() 함수를 사용하는 것이다.**
