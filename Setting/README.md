@@ -8,14 +8,14 @@
 ![image](https://github.com/JJUN1204/Shoppingmal_DB/assets/108847513/b0f703d0-e945-4021-8d29-fab4c4f150c2)
 ****
 ## 3. 오라클 연결
-**oracle 연결**
-# 1.   
+
+### 1. New 새 파일 생성
 ![image](https://github.com/JJUN1204/Shoppingmal_DB/assets/108847513/3d43e6f8-4319-4880-a8fd-07c0b9308411)   
-# 2.   
+### 2. Oracle 선택  
 ![image](https://github.com/JJUN1204/Shoppingmal_DB/assets/108847513/5cf98427-9836-4d78-95ad-4962f1e40a67)   
-# 3.   
+### 3. 요소안에 적절한 값 입력  
 ![image](https://github.com/JJUN1204/Shoppingmal_DB/assets/108847513/a4d01b29-a974-434f-944b-bf25dd537d3c)   
-# 4.   
+### 4. 연결이 되었는지 확인  
 ![image](https://github.com/JJUN1204/Shoppingmal_DB/assets/108847513/9bb2aef3-1d0f-4bbf-9084-7cb1e3d23ced)
 
 
