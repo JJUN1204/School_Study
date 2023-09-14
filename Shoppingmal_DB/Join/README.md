@@ -24,4 +24,34 @@
 
 -**스크립트릿<% %>에서 DB연결 및 SQL문을 실행하여 num에 값을 불러오는 코드**
 
+![image](https://github.com/JJUN1204/School_Study/assets/108847513/7bd7d39c-8865-4a15-83ea-4b69b6e10b87)   
+****
+**-등록 버튼을 누를시에 join_p.jsp를 통해 입력 값을 받아 DB에 저장한다.**
+## 주요코드
+``` jsp
+ <%
+        request.setCharacterEncoding("UTF-8");
+        String sql = "insert into member_tbl_02 values(?, ?, ?, ?, ?, ?, ?)";
+        
+        Connection conn = DBConnect.getConnection();
+        PreparedStatement ps = conn.prepareStatement(sql);
+        
+        ps.setInt(1, Integer.parseInt(request.getParameter("custno")));
+        
+        
+        ps.setString(2, request.getParameter("custname"));
+        ps.setString(3, request.getParameter("phone"));
+        ps.setString(4, request.getParameter("address"));
+        ps.setString(5, request.getParameter("joindate"));
+        ps.setString(6, request.getParameter("grade"));
+        ps.setString(7, request.getParameter("city"));
+        
+        
+        ps.executeQuery();
+        
+    %>
+```
+
+
+
 
